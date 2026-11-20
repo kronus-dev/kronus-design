@@ -40,21 +40,24 @@ export const kpis: Kpi[] = [
   { label: "Certificates expiring ≤ 30 days", value: "14", delta: "+5", up: false },
 ];
 
-/** Pastel text colour per status. Only greens, greys, yellow and orange. */
+/**
+ * Pastel text colour per status. Only greens, greys, yellow and orange.
+ * success / warning / caution are design tokens (app/globals.css).
+ */
 export function statusClass(status: string | null | undefined): string {
   switch (status) {
     case "Awarded":
-      return "text-emerald-300";
+      return "text-success";
     case "Started":
       return "text-emerald-200";
     case "Not started":
       return "text-zinc-200";
     case "Not sent":
     case "Under evaluation":
-      return "text-yellow-200";
+      return "text-warning";
     case "In revision":
     case "Client data missing":
-      return "text-orange-300";
+      return "text-caution";
     case "Cancelled":
       return "text-zinc-400 line-through";
     case "Rejected":
